@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hearthstone</title>
+  </head>
+  <body>
+    <h1>Hearthstone Cards</h1>
+    <h2>Enter your card information</h2>
+    <form  method='post' action='/cards'>
+      <p>Mana</p>
+      <input type='number' name='mana' placeholder='Mana'>
+      <p>Attack</p>
+      <input type='number' name='attack' placeholder='Attack'>
+      <p>Health</p>
+      <input type='number' name='health' placeholder='Health'>
+      <p>Description</p>
+      <input type='text' name='description' placeholder='Name/Description'>
+      <input type='submit'>
+    </form>
+
+    <%console.log(cards)%>
+    <div class='container'>
+      <h2>My cards:</h2>
+      <% for (var i = 0; i < deck.length; i++) { %>
+        <hr>
+        <div class='card'>
+          <p><%=deck[i].description%></p>
+          <p>Mana: <%=deck[i].mana%></p>
+          <p>Health: <%=deck[i].health%></p>
+          <p>Attack: <%=deck[i].attack%></p>
+          <a href="/cards/remove/<%=deck[i].id%>">Remove From List</a>
+          </div>
+      <% } %>
+
+      <h2>All cards:</h2>
+      <% for (var i = 0; i < cards.length; i++) { %>
+        <hr>
+        <div class='card'>
+          <p><%=cards[i].description%></p>
+          <p>Mana: <%=cards[i].mana%></p>
+          <p>Health: <%=cards[i].health%></p>
+          <p>Attack: <%=cards[i].attack%></p>
+          <a href="/cards/add/<%=cards[i].id%>">Add To List</a>
+          </div>
+        <% } %>
+      </div>
+
+
+  </body>
+</html>
